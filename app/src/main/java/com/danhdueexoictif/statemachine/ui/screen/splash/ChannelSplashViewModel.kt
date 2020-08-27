@@ -4,30 +4,33 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.consumeAsFlow
+import kotlinx.coroutines.channels.consumeEach
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class SplashViewModel() : ViewModel() {
+class ChannelSplashViewModel(
+    private val initialState: State
+) : ViewModel() {
 
     val intentChannel = Channel<Intent>(Channel.UNLIMITED)
-
-    private val _state = MutableStateFlow<State>(State.Idle)
-    val state: StateFlow<State> = _state
+    val stateChannel = Channel<State>()
 
     init {
         viewModelScope.launch { handleIntents() }
     }
 
     private suspend fun handleIntents() {
-        intentChannel.consumeAsFlow().collect { intent ->
+        var state = initialState
+
+        suspend fun setState(reducer: (State) -> State) {
+            state = reducer(state)
+            stateChannel.send(state)
+        }
+
+        intentChannel.consumeEach { intent ->
             when (intent) {
                 Intent.CheckUserLogin -> {
-                    val userState = checkUserLogin()
-                    _state.value = userState
+                    setState { checkUserLogin() }
                 }
             }
         }

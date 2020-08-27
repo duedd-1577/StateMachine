@@ -49,8 +49,16 @@ dependencies {
 
     kapt(Dependencies.DI.AnnotationProcessor.daggerHiltAndroid)
 
+    implementAll(Dependencies.Coroutines.components)
+    implementation(Dependencies.FlowBinding.android)
+
+    implementAll(Dependencies.Utils.components)
+
+    implementAll(Dependencies.Firebase.components)
+
     // Testing Dependencies
     testImplementation(Dependencies.Test.junit)
     androidTestImplementation(Dependencies.Test.testExt)
     androidTestImplementation(Dependencies.Test.espresso)
+    testImplementation(Dependencies.Test.coroutinesTest)
 }
