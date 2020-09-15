@@ -17,7 +17,8 @@ object Config {
 
     object Android {
         const val applicationId: String = "com.danhdueexoictif.statemachine"
-        const val testInstrumentationRunner: String = "androidx.test.runner.AndroidJUnitRunner"
+        const val packageName: String = "com.danhdueexoictif.statemachine"
+        const val testInstrumentationRunner: String = "${packageName}.CustomTestRunner"
     }
 }
 
@@ -160,6 +161,7 @@ object Dependencies {
         const val javaxInject: String = "javax.inject:javax.inject:${Version.javaxInject}"
         const val daggerHiltAndroid: String =
             "com.google.dagger:hilt-android:${Version.daggerHiltAndroid}"
+        const val hiltAndroidTesting: String = "com.google.dagger:hilt-android-testing:${Version.daggerHiltAndroid}"
     }
 
     object Coroutines : Libraries {

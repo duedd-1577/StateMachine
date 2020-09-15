@@ -1,7 +1,7 @@
 package com.danhdueexoictif.statemachine.ui.screen.splash
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.danhdueexoictif.statemachine.ui.base.BaseViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.consumeAsFlow
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class SplashViewModel() : ViewModel() {
+class SplashViewModel : BaseViewModel() {
 
     val intentChannel = Channel<Intent>(Channel.UNLIMITED)
 
@@ -19,7 +19,10 @@ class SplashViewModel() : ViewModel() {
     val state: StateFlow<State> = _state
 
     init {
-        viewModelScope.launch { handleIntents() }
+        viewModelScope.launch {
+            handleIntents()
+            checkUserLogin()
+        }
     }
 
     private suspend fun handleIntents() {

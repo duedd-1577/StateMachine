@@ -1,45 +1,33 @@
 package com.danhdueexoictif.statemachine.ui.screen.splash
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.danhdueexoictif.statemachine.R
-import com.danhdueexoictif.statemachine.extension.safeOffer
+import com.danhdueexoictif.statemachine.databinding.SplashFragmentBinding
+import com.danhdueexoictif.statemachine.ui.base.BaseFragment
 import com.danhdueexoictif.statemachine.utils.d
-import kotlinx.android.synthetic.main.splash_fragment.*
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import reactivecircus.flowbinding.android.view.clicks
 
-class SplashFragment : Fragment() {
+class SplashFragment : BaseFragment<SplashFragmentBinding, SplashViewModel>() {
 
-    private lateinit var viewModel: SplashViewModel
+    override val layoutId: Int = R.layout.splash_fragment
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.splash_fragment, container, false)
-    }
+    override val viewModel: SplashViewModel by viewModels()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SplashViewModel::class.java)
         viewModel.state.onEach { state -> handleState(state) }.launchIn(lifecycleScope)
         setupUIs()
     }
 
     private fun setupUIs() {
         lifecycleScope.launch {
-            butLogin?.clicks()?.collect {
-                viewModel.intentChannel.safeOffer(SplashViewModel.Intent.CheckUserLogin)
-            }
+//            butLogin?.clicks()?.collect {
+//                viewModel.intentChannel.safeOffer(SplashViewModel.Intent.CheckUserLogin)
+//            }
         }
     }
 
@@ -59,6 +47,5 @@ class SplashFragment : Fragment() {
     private fun navigateToMainFragment() {
         d { "navigateToMainFragment()" }
     }
-
 
 }

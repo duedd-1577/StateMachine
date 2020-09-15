@@ -61,4 +61,6 @@ dependencies {
     androidTestImplementation(Dependencies.Test.testExt)
     androidTestImplementation(Dependencies.Test.espresso)
     testImplementation(Dependencies.Test.coroutinesTest)
+    androidTestImplementation(Dependencies.DI.hiltAndroidTesting)
+    kaptAndroidTest(Dependencies.DI.AnnotationProcessor.daggerHiltAndroid)
 }

@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.danhdueexoictif.statemachine.ui.screen.splash.SplashViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,30 +14,32 @@
         android:layout_height="match_parent"
         tools:context=".ui.screen.splash.SplashFragment">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/butLogin"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title"
+            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/txt_login"
+            android:text="@string/txt_splash_screen"
+            android:textSize="@dimen/sp_32"
             android:textStyle="bold|italic"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/butMainNavigation"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintBottom_toTopOf="@+id/contentLoadingProgressBar"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/butMainNavigation"
-            android:layout_width="wrap_content"
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/contentLoadingProgressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/txt_skip_to_main_screen"
-            android:textStyle="bold|italic"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/butLogin"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginStart="@dimen/dp_125"
+            android:layout_marginEnd="@dimen/dp_125"
+            android:layout_marginTop="@dimen/dp_30"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
