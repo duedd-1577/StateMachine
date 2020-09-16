@@ -37,13 +37,23 @@ android {
         dataBinding = true
         viewBinding = true
     }
+
+    buildTypes {
+        applicationVariants.all {
+            buildConfigField(
+                "String",
+                "BASE_URL",
+                "\"https://danhdue.com\""
+            )
+        }
+    }
 }
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementAll(Dependencies.View.components)
     implementation(Dependencies.Kotlin.stdlib)
-    implementation(Dependencies.Network.moshi)
+    implementAll(Dependencies.Network.components)
     implementation(Dependencies.DI.daggerHiltAndroid)
     implementAll(Dependencies.AndroidX.components)
 
@@ -54,7 +64,10 @@ dependencies {
 
     implementAll(Dependencies.Utils.components)
 
+    annotationProcessor(Dependencies.Utils.lombok)
+
     implementAll(Dependencies.Firebase.components)
+
 
     // Testing Dependencies
     testImplementation(Dependencies.Test.junit)

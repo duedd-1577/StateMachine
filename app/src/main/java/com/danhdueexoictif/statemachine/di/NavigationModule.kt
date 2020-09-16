@@ -15,6 +15,7 @@ import dagger.hilt.android.scopes.ActivityScoped
 
 @InstallIn(ActivityComponent::class)
 @Module
+@ActivityScoped
 interface NavigationModule {
     @get:[Binds ActivityScoped]
     val NavigationDispatcherImpl.navigationDispatcher: NavigationDispatcher

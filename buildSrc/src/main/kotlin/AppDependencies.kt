@@ -127,6 +127,7 @@ object Dependencies {
             const val okhttp: String = "4.7.2"
             const val retrofit: String = "2.9.0"
             const val moshi: String = "1.9.2"
+            const val retrofitScalars = "2.9.0"
         }
 
         object AnnotationProcessor {
@@ -140,10 +141,12 @@ object Dependencies {
         private const val retrofitMoshi: String =
             "com.squareup.retrofit2:converter-moshi:${Version.retrofit}"
         const val moshi: String = "com.squareup.moshi:moshi-kotlin:${Version.moshi}"
+        const val scalarsConverter =
+            "com.squareup.retrofit2:converter-scalars:${Version.retrofitScalars}"
 
         override val components: List<String> = listOf(
             okhttp, loggingInterceptor, retrofit,
-            retrofitMoshi, moshi
+            retrofitMoshi, moshi, scalarsConverter
         )
     }
 
@@ -161,7 +164,8 @@ object Dependencies {
         const val javaxInject: String = "javax.inject:javax.inject:${Version.javaxInject}"
         const val daggerHiltAndroid: String =
             "com.google.dagger:hilt-android:${Version.daggerHiltAndroid}"
-        const val hiltAndroidTesting: String = "com.google.dagger:hilt-android-testing:${Version.daggerHiltAndroid}"
+        const val hiltAndroidTesting: String =
+            "com.google.dagger:hilt-android-testing:${Version.daggerHiltAndroid}"
     }
 
     object Coroutines : Libraries {
@@ -190,12 +194,14 @@ object Dependencies {
 
     object Utils : Libraries {
         object Version {
+            const val lombok = "1.18.12"
             const val timber = "4.7.1"
         }
 
         const val timber = "com.jakewharton.timber:timber:${Version.timber}"
+        const val lombok = "org.projectlombok:lombok:${Version.lombok}"
 
-        override val components: List<String> = listOf(timber)
+        override val components: List<String> = listOf(timber, lombok)
     }
 
     object Test {

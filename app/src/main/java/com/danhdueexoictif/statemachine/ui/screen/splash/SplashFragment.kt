@@ -7,10 +7,12 @@ import com.danhdueexoictif.statemachine.R
 import com.danhdueexoictif.statemachine.databinding.SplashFragmentBinding
 import com.danhdueexoictif.statemachine.ui.base.BaseFragment
 import com.danhdueexoictif.statemachine.utils.d
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class SplashFragment : BaseFragment<SplashFragmentBinding, SplashViewModel>() {
 
     override val layoutId: Int = R.layout.splash_fragment

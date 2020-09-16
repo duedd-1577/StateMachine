@@ -6,7 +6,9 @@ import com.danhdueexoictif.statemachine.R
 import com.danhdueexoictif.statemachine.databinding.LoginFragmentBinding
 import com.danhdueexoictif.statemachine.ui.base.BaseFragment
 import com.danhdueexoictif.statemachine.utils.d
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginFragment : BaseFragment<LoginFragmentBinding, LoginViewModel>() {
 
     override val layoutId: Int = R.layout.login_fragment
