@@ -4,11 +4,21 @@ plugins {
 
 spotless {
     kotlin {
-        target(fileTree(mapOf(
-                "dir" to ".",
-                "include" to listOf("**/*.kt"),
-                "exclude" to listOf("**/build/**", "**/buildSrc/**", "**/.*", ".idea/"))))
-        ktlint(ktLintVersion)
+        target(
+            fileTree(
+                mapOf(
+                    "dir" to ".",
+                    "include" to listOf("**/*.kt"),
+                    "exclude" to listOf("**/build/**", "**/buildSrc/**", "**/.*", ".idea/")
+                )
+            )
+        )
+        ktlint(ktLintVersion).userData(
+            mapOf(
+                "disabled_rules" to "no-wildcard-imports",
+                "editorconfig" to "$rootDir/.editorconfig"
+            )
+        )
         trimTrailingWhitespace()
         indentWithSpaces()
         endWithNewline()
@@ -20,10 +30,15 @@ spotless {
         endWithNewline()
     }
     kotlinGradle {
-        target(fileTree(mapOf(
-                "dir" to ".",
-                "include" to listOf("**/*.gradle.kts", "*.gradle.kts"),
-                "exclude" to listOf("**/build/**"))))
+        target(
+            fileTree(
+                mapOf(
+                    "dir" to ".",
+                    "include" to listOf("**/*.gradle.kts", "*.gradle.kts"),
+                    "exclude" to listOf("**/build/**")
+                )
+            )
+        )
         trimTrailingWhitespace()
         indentWithSpaces()
         endWithNewline()

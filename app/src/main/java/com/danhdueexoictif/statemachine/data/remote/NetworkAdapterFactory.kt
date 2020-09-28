@@ -1,11 +1,11 @@
 package com.danhdueexoictif.statemachine.data.remote
 
+import java.lang.reflect.ParameterizedType
+import java.lang.reflect.Type
 import kotlinx.coroutines.Deferred
 import retrofit2.Call
 import retrofit2.CallAdapter
 import retrofit2.Retrofit
-import java.lang.reflect.ParameterizedType
-import java.lang.reflect.Type
 
 class NetworkAdapterFactory : CallAdapter.Factory() {
 

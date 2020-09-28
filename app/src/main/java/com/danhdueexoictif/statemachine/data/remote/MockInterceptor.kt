@@ -47,7 +47,7 @@ class MockInterceptor(private val assets: AssetManager) : Interceptor {
                 chain.proceed(chain.request())
             }
         } else {
-            //just to be on safe side.
+            // just to be on safe side.
             throw IllegalAccessError(
                 "MockInterceptor is only meant for Testing Purposes and " +
                         "bound to be used only with DEBUG mode"
@@ -59,5 +59,4 @@ class MockInterceptor(private val assets: AssetManager) : Interceptor {
         const val LOGIN_ROUT = "login"
         const val MOCK_LOGIN_SUCCESS_RES_JSON_FILE_NAME = "mock_login_success.json"
     }
-
 }

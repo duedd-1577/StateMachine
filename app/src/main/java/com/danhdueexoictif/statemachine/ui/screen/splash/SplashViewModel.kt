@@ -52,5 +52,4 @@ class SplashViewModel : BaseViewModel() {
         object UserLoggedIn : State()
         object UserLoggedOut : State()
     }
-
 }

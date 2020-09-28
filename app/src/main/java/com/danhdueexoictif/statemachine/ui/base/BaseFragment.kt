@@ -34,7 +34,9 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding, ViewModel : BaseViewM
     private var isLightStatusBar = true
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? = DataBindingUtil.inflate<ViewBinding>(inflater, layoutId, container, false).let {
         this.viewBinding = it
         it.root
@@ -86,7 +88,7 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding, ViewModel : BaseViewM
                     false
                 }
             }
-            //If a layout container, iterate over children and seed recursion.
+            // If a layout container, iterate over children and seed recursion.
             if (view is ViewGroup) {
                 for (i in 0 until view.childCount) {
                     val innerView = view.getChildAt(i)

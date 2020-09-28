@@ -1,8 +1,8 @@
 package com.danhdueexoictif.statemachine.data.remote
 
 import com.danhdueexoictif.statemachine.data.remote.response.BaseResponse
-import kotlinx.coroutines.delay
 import java.io.IOException
+import kotlinx.coroutines.delay
 
 /**
  * Retries the given [block] for the specified number of times in the case of [NetworkResponse.NetworkError]

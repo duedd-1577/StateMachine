@@ -1,11 +1,11 @@
 package com.danhdueexoictif.statemachine.data.remote
 
 import com.danhdueexoictif.statemachine.data.remote.response.BaseResponse
+import java.lang.reflect.Type
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Deferred
 import okhttp3.ResponseBody
 import retrofit2.*
-import java.lang.reflect.Type
 
 /**
  * A Retrofit converter to return objects wrapped in [NetworkResponse] class

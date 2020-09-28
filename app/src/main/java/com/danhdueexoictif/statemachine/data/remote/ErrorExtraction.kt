@@ -1,10 +1,10 @@
 package com.danhdueexoictif.statemachine.data.remote
 
 import com.danhdueexoictif.statemachine.data.remote.HttpResponseCode.HTTP_UNKNOWN_ERROR
+import java.io.IOException
 import okhttp3.ResponseBody
 import retrofit2.Converter
 import retrofit2.HttpException
-import java.io.IOException
 
 /**
  * extract to NetworkResponse.NetworkError from HTTP Exception
@@ -47,4 +47,3 @@ internal fun <S : Any, E : Any> Throwable.extractNetworkResponse(errorConverter:
         else -> throw this
     }
 }
-

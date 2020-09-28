@@ -62,12 +62,13 @@ dependencies {
     implementAll(Dependencies.Coroutines.components)
     implementation(Dependencies.FlowBinding.android)
 
-    implementAll(Dependencies.Utils.components)
+    implementation(Dependencies.Utils.timber)
 
-    annotationProcessor(Dependencies.Utils.lombok)
+    // lombok
+    compileOnly(Dependencies.Utils.lombok)
+    kapt(Dependencies.Utils.lombok)
 
     implementAll(Dependencies.Firebase.components)
-
 
     // Testing Dependencies
     testImplementation(Dependencies.Test.junit)

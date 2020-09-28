@@ -52,5 +52,4 @@ class ChannelSplashViewModel(
         object UserLoggedIn : State()
         object UserLoggedOut : State()
     }
-
 }

@@ -49,5 +49,4 @@ class SplashFragment : BaseFragment<SplashFragmentBinding, SplashViewModel>() {
     private fun navigateToMainFragment() {
         d { "navigateToMainFragment()" }
     }
-
 }

@@ -30,6 +30,5 @@ class ExampleInstrumentedTest {
         assertEquals("com.danhdueexoictif.statemachine", appContext.packageName)
 
         ActivityScenario.launch(MainActivity::class.java)
-
     }
 }

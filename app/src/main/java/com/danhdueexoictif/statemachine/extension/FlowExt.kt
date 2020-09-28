@@ -11,11 +11,7 @@ import kotlinx.coroutines.flow.onEach
 inline fun <reified R> Flow<R>.observe(
     lifecycleOwner: LifecycleOwner,
     crossinline action: (R) -> Unit
-) {
-    this.onEach {
-        action(it)
-    }.launchIn(lifecycleOwner.lifecycleScope)
-}
+) { this.onEach { action(it) }.launchIn(lifecycleOwner.lifecycleScope) }
 
 fun <E> SendChannel<E>.safeOffer(value: E): Boolean = !isClosedForSend && try {
     offer(value)

@@ -14,7 +14,7 @@ object Constants {
     }
 
     object NetworkSettings {
-        const val TIMEOUT = 10  // seconds
-        const val DOUBLE_CHECK_CONNECTION_TIME_OUT = 1500   // milliseconds
+        const val TIMEOUT = 10 // seconds
+        const val DOUBLE_CHECK_CONNECTION_TIME_OUT = 1500 // milliseconds
     }
 }

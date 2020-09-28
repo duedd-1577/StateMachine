@@ -2,6 +2,10 @@ package com.danhdueexoictif.statemachine.data.remote
 
 import androidx.annotation.VisibleForTesting
 import com.danhdueexoictif.statemachine.BuildConfig
+import java.io.EOFException
+import java.io.IOException
+import java.nio.charset.Charset
+import java.nio.charset.StandardCharsets.UTF_8
 import lombok.Builder
 import lombok.Data
 import okhttp3.Headers
@@ -10,10 +14,6 @@ import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.Interceptor
 import okhttp3.logging.HttpLoggingInterceptor
 import okio.Buffer
-import java.io.EOFException
-import java.io.IOException
-import java.nio.charset.Charset
-import java.nio.charset.StandardCharsets.UTF_8
 
 @Data
 @Builder

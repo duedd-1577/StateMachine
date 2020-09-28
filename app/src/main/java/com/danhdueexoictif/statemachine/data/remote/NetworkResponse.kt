@@ -1,10 +1,10 @@
 package com.danhdueexoictif.statemachine.data.remote
 
 import com.danhdueexoictif.statemachine.data.remote.response.BaseResponse
+import java.io.IOException
 import lombok.Builder
 import lombok.Data
 import okhttp3.Headers
-import java.io.IOException
 
 @Data
 @Builder

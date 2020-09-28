@@ -192,7 +192,7 @@ object Dependencies {
         override val components: List<String> = listOf(firebaseCrashlytics)
     }
 
-    object Utils : Libraries {
+    object Utils {
         object Version {
             const val lombok = "1.18.12"
             const val timber = "4.7.1"
@@ -200,8 +200,6 @@ object Dependencies {
 
         const val timber = "com.jakewharton.timber:timber:${Version.timber}"
         const val lombok = "org.projectlombok:lombok:${Version.lombok}"
-
-        override val components: List<String> = listOf(timber, lombok)
     }
 
     object Test {
